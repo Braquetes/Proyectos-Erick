@@ -1,0 +1,49 @@
+<h2>Template: Form Basic</h2>
+<hr>
+<div class="row">
+    <div class="col">
+        <form autocomplete="off" (ngSubmit)="guardar()" #myform="ngForm">
+            <div class="mb-3 row">
+                <label class="col-sm-3 col-form-label">Producto</label>
+                <div class="col-sm-9">
+                    <input 
+                    [ngModel]="dataInicial.producto" 
+                    name="producto" type="text" class="form-control" placeholder="Nombre del producto" required>
+                    <span class="form-text text-danger" *ngIf="validarNombre()">Minimo 4 letras</span>
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label class="col-sm-3 col-form-label">Precio</label>
+                <div class="col-sm-9">
+                    <input 
+                    [ngModel]="dataInicial.precio" 
+                    name="precio" type="number" class="form-control" placeholder="Precio del producto" required min="0">
+                    <span class="form-text text-danger" 
+                    *ngIf="precioValido()">
+                    Precio debe ser mayor a 0</span>
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label class="col-sm-3 col-form-label">Stock</label>
+                <div class="col-sm-9">
+                    <input 
+                    [ngModel]="dataInicial.stock"
+                    name="stock" type="number" class="form-control" placeholder="Existencia del producto" required min="0" max="1000">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <button 
+                    [disabled]="myform.invalid"
+                    class="btn btn-primary float-end">Guardar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div>
+        <!-- {{myform.valid}} Si es valido el formulario -->
+        <!-- {{myform.touched}} Tocar boton -->
+        <!-- {{myform.pristine}} Interactuamos con el formulario -->
+        <!-- {{myform.dirty}} Por si se escribio algo -->
+    </div>
+</div>

@@ -1,0 +1,77 @@
+<h2>Reactive: Form Dynamics</h2>
+<hr>
+
+<form  [formGroup]="miFormulario">
+    <div class="mb-3 row">
+        <label class="col-sm-3 col-form-label">Nombre</label>
+        <div class="col-sm-9">
+            <input class="form-control" 
+            formControlName="nombre"
+            placeholder="Nombre del campeón">
+            <span
+            *ngIf="campoValido('nombre')"
+            class="form-text text-danger">
+                Campo obligatorio y mínimo 4 letras
+            </span>
+        </div>
+    </div>
+
+    <!--Añadir Habilidades-->
+    <div class="mb-3 row">
+        <label class="col-sm-3 col-form-label">Añadir</label>
+        <div class="col-sm-9">
+            <div class="input-group">
+                <input class="form-control"
+                [formControl]="newhab"
+                placeholder="Agregar habilidad"
+                (keyup.enter)="addAlias()"
+                >
+                <button  type="button" (click)="addAlias()" class="btn btn-primary">
+                    Añadir
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!--Lista de Habilidades-->
+
+    <div class="mb-3 row">
+        <label class="col-sm-3 col-form-label">Habilidades</label>
+        <div class="col-sm-9"
+        formArrayName="habilidades">
+            <div
+            *ngFor="let hab of getControl.controls; let i = index"
+            class="input-group mb-2">
+                <input 
+                [formControlName]="i"
+                class="form-control">
+                <button type="button" (click)="eliminarHabilidad(i)" class="btn btn-danger">
+                    Eliminar
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!--Botón Guardar-->
+
+    <div class="row">
+        <div class="col-sm-9">
+            <button type="button"
+            (click)="save()" 
+            class="btn btn-success">
+                Guardar
+            </button>
+        </div>
+    </div>
+</form>
+<hr>
+<p>
+    {{miFormulario.value| json}}
+</p>
+<!-- <div>
+    <hr>
+    <h4>Campeón:</h4>
+    <p>
+        {{champion | json}}
+    </p>
+</div> -->

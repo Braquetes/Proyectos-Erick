@@ -1,0 +1,60 @@
+<h2>Reactive: Form Basic</h2>
+<hr>
+<div class="row">
+    <div class="col">
+        <form (ngSubmit)="save()" autocomplete="off" [formGroup]="miFormulario">
+            <div class="mb-3 row">
+                <label class="col-sm-3 col-form-label">Producto</label>
+                <div class="col-sm-9">
+                    <input
+                    formControlName="nombre" 
+                    type="text" 
+                    class="form-control" 
+                    placeholder="Nombre del producto">
+                    <span 
+                    *ngIf="campoValido('nombre')" 
+                    class="form-text text-danger">Minimo 4 letras</span>
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label class="col-sm-3 col-form-label">Precio</label>
+                <div class="col-sm-9">
+                    <input
+                    formControlName="precio"
+                    type="number" class="form-control"
+                    placeholder="Precio del producto">
+                    <span 
+                    *ngIf="campoValido('precio')"
+                    class="form-text text-danger" >
+                    Precio debe ser mayor a 0</span>
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label class="col-sm-3 col-form-label">Stock</label>
+                <div class="col-sm-9">
+                    <input
+                    formControlName="stock"
+                    type="number" class="form-control" 
+                    placeholder="Existencia del producto">
+                    <span 
+                    *ngIf="campoValido('stock')"
+                    class="form-text text-danger" >
+                    Stock debe ser mayor a 0</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <button type="submit"
+                    class="btn btn-primary float-end">Guardar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div>
+        {{miFormulario.valid}} <hr> <!--Si es valido el formulario-->
+        {{miFormulario.touched}} <hr> <!--Tocar boton-->
+        {{miFormulario.pristine}} <hr> <!--Interactuamos con el formulario-->
+        {{miFormulario.dirty}} <hr> <!--Por si se escribio algo-->
+        {{miFormulario.value | json}}
+    </div>
+</div>

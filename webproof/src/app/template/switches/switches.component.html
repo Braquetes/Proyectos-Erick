@@ -1,0 +1,95 @@
+<h2>Switches</h2>
+<hr>
+
+<form #miFormulario="ngForm">
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Género</label>
+        <div class="col-sm-9">
+            <div class="form-check">
+                <input class="form-check-input" 
+                type="radio" 
+                name="genero" 
+                value="M"
+                required
+                [(ngModel)]="user.genero"
+                id="radioM">
+                <label class="form-check-label" for="radioM">
+                    Masculino
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" 
+                type="radio" 
+                name="genero"
+                value="F" 
+                required
+                [(ngModel)]="user.genero"
+                id="radioF">
+                <label class="form-check-label" for="radioF">
+                    Femenino
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Luces</label>
+        <div class="col-sm-9">
+            <div class="form-check form-switch mt-2">
+                <input class="form-check-input" 
+                type="checkbox" 
+                name="luces"
+                [(ngModel)] = "user.luces"
+                id="checkSwitch">
+                <label class="form-check-label" for="checkSwitch">Encendido</label>
+            </div>
+        </div>
+    </div> 
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Notificaciones emergentes</label>
+        <div class="col-sm-9">
+            <div class="form-check">
+                <input class="form-check-input" 
+                type="checkbox" 
+                name="notificaciones"
+                [(ngModel)] = "notificaciones"
+                id="notifi">
+                <label class="form-check-label" for="notifi">
+                    Aceptar
+                </label>
+            </div>
+        </div>
+    </div> 
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Terminos y Condiciones</label>
+        <div class="col-sm-9">
+            <div class="form-check">
+                <input class="form-check-input" 
+                type="checkbox"
+                required 
+                name="terminos"
+                [(ngModel)] = "terminos"
+                id="notifi">
+                <label class="form-check-label" for="notifi">
+                    Aceptar
+                </label>
+            </div>
+        </div>
+    </div> 
+    <div class="row">
+        <div class="col">
+            <button class="btn btn-success float-end"  
+            [disabled]="miFormulario.invalid">
+                Guardar
+            </button>
+        </div>
+    </div> 
+</form>
+<hr>
+<h4>Valor del formulario</h4>
+<pre>
+    {{miFormulario.value | json}}
+</pre>
+<h4>Valido?</h4>
+<pre>{{miFormulario.valid}}</pre>
+<h4>Terminos</h4>
+<pre>{{miFormulario.controls?.terminos?.errors | json}}</pre>

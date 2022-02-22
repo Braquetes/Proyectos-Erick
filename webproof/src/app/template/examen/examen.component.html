@@ -1,0 +1,66 @@
+<h2>Template: Examen</h2>
+<hr>
+<div class="row">
+    <div class="col">
+        <form autocomplete="off" (ngSubmit)="guardar()" #myform="ngForm">
+            <div class="mb-3 row">
+                <label class="col-sm-3 col-form-label">Estudiante</label>
+                <div class="col-sm-9">
+                    <input 
+                    [ngModel]="alumno.nombre" 
+                    name="nombre" type="text" class="form-control" placeholder="Nombre estudiante" required>
+                    <span class="form-text text-danger" *ngIf="validarNombre()">Nombre obligatorio</span>
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label class="col-sm-3 col-form-label">Apellido</label>
+                <div class="col-sm-9">
+                    <input 
+                    [ngModel]="alumno.apellido" 
+                    name="apellido" type="text" class="form-control" placeholder="Apellido estudiante">
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label class="col-sm-3 col-form-label">Edad</label>
+                <div class="col-sm-9">
+                    <input 
+                    [ngModel]="alumno.edad"
+                    name="edad" type="number" class="form-control" placeholder="Edad estudiante" required min="18">
+                    <span class="form-text text-danger" 
+                    *ngIf="validarEdad()">
+                    La edad debe ser mayor o igual a 18</span>
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label class="col-sm-3 col-form-label">Carrera</label>
+                <div class="col-sm-9">
+                    <select  [ngModel]="alumno.carrera" name="carrera" class="form-select" aria-label="Default select example" required>
+                        <option selected>Selecciona tu carrera</option>
+                        <option value="TI">TI</option>
+                        <option value="Mecatronica">Mecatronica</option>
+                        <option value="Negocios">Negocios</option>
+                        <option value="Negocios">Gastronomía</option>
+                        <option value="Negocios">Agricultura</option>
+                        <option value="Negocios">Modas</option>
+                      </select>
+                      <span class="form-text text-danger" 
+                    *ngIf="validarCarrera()">
+                    La carrera es obligatoria</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <button 
+                    [disabled]="myform.invalid"
+                    class="btn btn-primary float-end">Guardar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div>
+        <!-- {{myform.valid}} Si es valido el formulario -->
+        <!-- {{myform.touched}} Tocar boton -->
+        <!-- {{myform.pristine}} Interactuamos con el formulario -->
+        <!-- {{myform.dirty}} Por si se escribio algo -->
+    </div>
+</div>
