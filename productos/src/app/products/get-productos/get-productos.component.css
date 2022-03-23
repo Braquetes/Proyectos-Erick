@@ -1,0 +1,19 @@
+table, thead{
+    border: black 1px solid;
+    align-items: center;
+    justify-content: center;
+}
+
+td {
+    border: black 1px solid;
+    padding: 15px;
+    align-items: center;
+    justify-content: center;
+}
+
+th {
+    border: black 1px solid;
+    align-items: center;
+    padding: 5px;
+    justify-content: center;
+}

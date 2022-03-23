@@ -1,0 +1,35 @@
+<div>
+    <h1>Registro de productos</h1>
+</div>
+<a class="btn btn-agregar" [routerLink]="['/create-producto']">Agregar producto</a>
+<div class="container-fluid" align="center">
+
+    <table>
+        <thead>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Descripcion</th>
+            <th>Precio</th>
+            <th>Imagen</th>
+            <th>Stock</th>
+            <th>Marca</th>
+            <th>Categoría</th>
+            <th>Opciones</th>
+        </thead>
+            <tbody *ngFor="let producto of productos" align="center">
+            <td>{{producto.idProducto}}</td>
+            <td>{{producto.nombre}}</td>
+            <td>{{producto.descripcion}}</td>
+            <td>${{producto.precio}}</td>
+            <td><img src="{{producto.imagen}}" alt="photo" width="100vh"></td>
+            <td>{{producto.stock}} piezas</td>
+            <td>{{producto.idMarca}}</td>
+            <td>{{producto.idCategoria}}</td>
+            <td>
+                <button class="btn btn-success" (click)="editar(producto.idProducto)">Update</button>
+                <br><br>
+                <button class="btn btn-danger" (click)="eliminar(producto.idProducto)">Delete</button>
+            </td>
+            </tbody>
+    </table>
+</div>

@@ -1,0 +1,52 @@
+<div class="container">
+    <h1>Agregar producto</h1>
+    <hr>
+    <div class="formulario">
+        <form (ngSubmit)="save(form)" #form="ngForm">
+            <div class="row">
+                    <div class="mb-3">
+                        <label class="form-label">Nombre</label>
+                        <input name="nombre" [(ngModel)]="producto.nombre" type="text" class="form-control"
+                            placeholder="Nombre" aria-describedby="emailHelp">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Descripcion</label>
+                        <input name="descripcion" [(ngModel)]="producto.descripcion" type="text" class="form-control"
+                            placeholder="Descripción" aria-describedby="emailHelp">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Precio</label>
+                        <input name="precio" [(ngModel)]="producto.precio" type="text" class="form-control"
+                            placeholder="Precio" aria-describedby="emailHelp">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Imagen</label>
+                        <input name="imagen" [(ngModel)]="producto.imagen" type="text" class="form-control"
+                            placeholder="Imagen URL" aria-describedby="emailHelp">
+                    </div>
+            </div>
+                    <div class="mb-3">
+                        <label class="form-label">Stock</label>
+                        <input name="stock" [(ngModel)]="producto.stock" type="text" class="form-control"
+                            placeholder="Stock" aria-describedby="emailHelp">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Marca</label>
+                        <input name="idMarca" [(ngModel)]="producto.idMarca" type="text" class="form-control"
+                            placeholder="Id Marca" aria-describedby="emailHelp">
+                </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Categoria</label>
+                        <input name="idCategoria" [(ngModel)]="producto.idCategoria" type="text" class="form-control"
+                            placeholder="Id Categoría">
+                        <input hidden name="idProducto" [(ngModel)]="producto.idProducto" type="text">
+                    </div>
+
+                <div class="botones">
+                    <button [hidden]="id"  *ngIf="form.valid" type="submit" class="btn btn-success">Registrar</button>
+                    <button *ngIf="id" type="submit" class="btn btn-success">Actualizar</button>
+                </div>
+        </form>
+    </div>
+</div>
