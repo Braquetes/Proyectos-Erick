@@ -8,7 +8,7 @@ export class ProductsService {
 
   constructor(private http: HttpClient) { }
 
-  URL = `http://localhost/api's`;
+  URL = `http://localhost/backend`;
 
   getProducts(){
     return this.http.get(`${this.URL}/getProducts.php`);

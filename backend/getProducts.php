@@ -1,7 +1,7 @@
 <?php
 
-header("Access-Control-Allow-Origin: http://localhost:4200");
-header("Access-Control-Allow-Headers: GET");
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Headers: *");
 
 $bd = include_once "conexion.php";
 
